@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زاد - منتجاتنا</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #EFEBE9; /* لون الحليب الفاتح */
+            --secondary-color: #5D4037; /* لون الشوكولاتة الداكنة */
+            --neutral-color: #FFF8F0;
+            --button-color: #795548; /* لون الشوكولاتة المتوسط */
+            --text-color: #3E2723; /* لون بني داكن جداً للنصوص */
+            --light-text: #ffffff;
+            --dark-text: #3E2723;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --discount-color: #BF360C;
+            --exclusive-color: #D4AF37; /* لون ذهبي */
+            --new-color: #4CAF50;
+            --fast-delivery: #FFC107; /* لون الكراميل */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark-text);
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* الهيدر */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--primary-color);
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .header-top-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-top-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-top-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-main {
+            padding: 15px 0;
+        }
+
+        .header-main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--button-color);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-icon {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .header-icon:hover {
+            color: var(--button-color);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            background-color: var(--button-color);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-btn {
+            background-color: var(--button-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .login-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* قسم المنتجات */
+        .products-section {
+            padding: 40px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--button-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%; 
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image-container {
+             position: relative;
+             width: 100%;
+             padding-top: 100%; 
+             overflow: hidden;
+        }
+
+        .product-image {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             transition: var(--transition);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-text);
+            min-height: 2.4rem; 
+        }
+
+        .product-price {
+            color: var(--button-color);
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.8rem;
+            margin-left: 6px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .add-to-cart {
+            background-color: var(--button-color);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* علامات المنتجات */
+        .product-badges {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 10;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .badge-discount {
+            background-color: var(--discount-color);
+        }
+
+        .badge-new {
+            background-color: var(--new-color);
+        }
+
+        .badge-exclusive {
+            background-color: var(--exclusive-color);
+        }
+
+        .badge-fast-delivery {
+            background-color: var(--fast-delivery);
+            color: #333;
+        }
+
+        /* قسم الاشتراك */
+        .subscription-section {
+            background-color: var(--primary-color);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .subscription-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--box-shadow);
+        }
+
+        .subscription-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+
+        .subscription-card p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .subscribe-btn {
+            background-color: var(--button-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .subscribe-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: #2c2c2c;
+            color: #f1f1f1;
+            padding: 40px 0 15px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+            color: white;
+        }
+
+        .footer-column h4::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 35px;
+            height: 2px;
+            background-color: var(--button-color);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-right: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            background-color: #444;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--button-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* صفحة المنتج */
+        .product-page {
+            display: none;
+            padding: 30px 0;
+            background-color: white;
+        }
+
+        .product-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-gallery {
+            position: relative;
+        }
+
+        .main-product-image {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 12px;
+        }
+
+        .product-thumbnails {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .product-thumbnail {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .product-thumbnail:hover, .product-thumbnail.active {
+            border-color: var(--button-color);
+        }
+
+        .product-info-detail {
+            padding: 15px 0;
+        }
+
+        .product-title-detail {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: var(--dark-text);
+        }
+
+        .product-price-detail {
+            font-size: 1.6rem;
+            color: var(--button-color);
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .product-options {
+            margin-bottom: 20px;
+        }
+
+        .option-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .option-values {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .option-value {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .option-value:hover, .option-value.selected {
+            background-color: var(--button-color);
+            color: white;
+            border-color: var(--button-color);
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .product-table th, .product-table td {
+            padding: 10px 12px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+
+        .product-table th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+        }
+
+        .product-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .back-to-products {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin-bottom: 25px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .back-to-products:hover {
+            background-color: #4e342e;
+        }
+
+        /* العربة الطافية */
+        .floating-cart {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--button-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .floating-cart:hover {
+            transform: scale(1.1);
+        }
+        
+        .floating-cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--discount-color);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* التجاوب مع الشاشات المختلفة */
+        @media (max-width: 992px) {
+            .nav-menu {
+                gap: 15px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .product-details {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: white;
+                width: 100%;
+                flex-direction: column;
+                padding: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                margin: 8px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+
+            .product-thumbnail {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .subscription-card {
+                padding: 20px;
+            }
+            
+            .subscription-card h3 {
+                font-size: 1.6rem;
+            }
+            
+            .footer-content {
+                gap: 25px;
+            }
+
+            .floating-cart {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                left: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-main-container {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .subscription-card {
+                padding: 15px;
+            }
+            
+            .subscription-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .footer-column h4::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .product-thumbnail {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .product-info {
+                padding: 12px;
+            }
+            
+            .product-title {
+                font-size: 0.9rem;
+                min-height: 2.2rem;
+            }
+            
+            .product-price {
+                font-size: 1rem;
+            }
+            
+            .add-to-cart {
+                padding: 6px 10px;
+                font-size: 0.85rem;
+            }
+            
+            .product-details {
+                gap: 20px;
+            }
+            
+            .product-title-detail {
+                font-size: 1.5rem;
+            }
+            
+            .product-price-detail {
+                font-size: 1.4rem;
+            }
+            
+            .option-value {
+                padding: 5px 10px;
+                font-size: 0.85rem;
+            }
+
+            .floating-cart {
+                width: 45px;
+                height: 45px;
+                bottom: 10px;
+                left: 10px;
+            }
+            
+            .floating-cart-count {
+                width: 20px;
+                height: 20px;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .product-title {
+                font-size: 0.85rem;
+                min-height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <div class="container header-main-container">
+            <div class="logo">زاد</div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#">منتجاتنا</a></li>
+                <li><a href="#">شوكولاتة داكنة</a></li>
+                <li><a href="#">عروض خاصة</a></li>
+                <li><a href="#">الاشتراك الشهري</a></li>
+                <li><a href="#">مدونتنا</a></li>
+                <li><a href="#">تواصل معنا</a></li>
+            </ul>
+            
+            <div class="header-actions">
+                <a href="index.html" class="header-icon">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="index.html" class="header-icon">
+                    <i class="far fa-heart"></i>
+                </a>
+                <a href="sk.html" class="header-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="login-btn">تسجيل دخول</button>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="products-section" id="products-section">
+        <div class="container">
+            <h2 class="section-title">الحلويات</h2>
+            <div class="products-grid" id="featured-products">
+                </div>
+        </div>
+    </section>
+
+    <section class="product-page" id="product-page">
+        <div class="container">
+            <button class="back-to-products" id="back-to-products">← العودة إلى المنتجات</button>
+            
+            <div class="product-details" id="product-details">
+                </div>
+        </div>
+    </section>
+
+    <section class="subscription-section">
+        <div class="container">
+            <div class="subscription-card">
+                <h3>صندوق زاد الشهري</h3>
+                <p>احصل على تشكيلة منتقاة من أفخر أنواع الشوكولاتة والحلويات تصلك كل شهر بخصم مميز.</p>
+                <button class="subscribe-btn">اشترك الآن</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>عن زاد</h4>
+                    <p>متجر زاد يقدم لكم أفخر أنواع الشوكولاتة والحلويات المصنوعة من أجود المكونات الطبيعية، لتستمتعوا بتجربة لا تُنسى.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">تتبع الطلب</a></li>
+                        <li><a href="#">الاشتراك الشهري</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>المساعدة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">طرق الدفع</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>القائمة البريدية</h4>
+                    <p>اشترك في نشرتنا البريدية لتصلك آخر العروض والمنتجات الجديدة</p>
+                    <form>
+                        <input type="email" placeholder="بريدك الإلكتروني" style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: var(--border-radius); border: none;">
+                        <button type="submit" class="subscribe-btn" style="width: 100%; padding: 10px;">اشتراك</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 زاد. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-cart" id="floating-cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="floating-cart-count">0</span>
+    </div>
+
+    <script>
+        // بيانات المنتجات
+        const products = [
+    {
+        "id": 1,
+        "name": "كنافة لوتس",
+        "price": "28 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615382128009736",
+        "badges": ["new"],
+        "category": "حلويات",
+        "description": "كنافة مقرمشة محشوة بكريمة اللوتس الشهية، تجمع بين أصالة الكنافة ونكهة البسكويت البلجيكي الفاخر.",
+        "estimated_calories": "~420 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615382128009736"
+        ],
+        "details": {
+            "النوع": "كنافة محشوة",
+            "العلامة التجارية": "زاد",
+            "الوزن": "250 جم",
+            "المكونات": "عجينة كنافة، كريمة لوتس، سمن، سكر، مكسرات",
+            "خيارات التحلية": ["قليل السكر", "متوسط الحلاوة", "حلو كثيراً"],
+            "خيارات التقديم": ["ساخن", "دافئ", "بارد"],
+            "ملاحظات": "تحتوي على جلوتين ومكسرات وألبان"
+        },
+        "التبرير": "سعر مناسب لكنافة مميزة بمكونات فاخرة من اللوتس"
+    },
+    {
+        "id": 2,
+        "name": "وافل نوتيلا",
+        "price": "32 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615393109997818",
+        "badges": ["الأكثر مبيعاً"],
+        "category": "وافل وكريب",
+        "description": "وافل ذهبي مقرمش مغطى بطبقة غنية من النوتيلا، يقدم مع كريمة مخفوقة ورشة من البندق. وجبة إفطار أو حلوى لا تُقاوم.",
+        "estimated_calories": "~380 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615393109997818"
+        ],
+        "details": {
+            "النوع": "وافل حلو",
+            "العلامة التجارية": "زاد",
+            "الوزن": "200 جم",
+            "المكونات": "عجينة وافل، نوتيلا، كريمة مخفوقة، بندق",
+            "خيارات الإضافات": ["آيس كريم", "موز", "فراولة", "كراميل"],
+            "خيارات التقديم": ["ساخن فوري", "تغليف للسفر"],
+            "ملاحظات": "تحتوي على بندق وجلوتين وألبان"
+        },
+        "التبرير": "سعر مميز لوافل النوتيلا الأكثر مبيعاً بمكونات عالية الجودة"
+    },
+    {
+        "id": 3,
+        "name": "كنافة نوتيلا",
+        "price": "26 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615381226540080",
+        "badges": ["new"],
+        "category": "حلويات",
+        "description": "كنافة مذهلة محشوة بالنوتيلا، مزينة بطبقة إضافية من النوتيلا والفستق الحلبي. لقمة تذوب في الفم.",
+        "estimated_calories": "~450 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615381226540080"
+        ],
+        "details": {
+            "النوع": "كنافة شوكولاتة",
+            "العلامة التجارية": "زاد",
+            "الوزن": "280 جم",
+            "المكونات": "عجينة كنافة، نوتيلا، فستق حلبي، سمن، سكر",
+            "خيارات التحلية": ["حلاوة خفيفة", "متوسطة الحلاوة", "حلو كثيراً"],
+            "خيارات المكسرات": ["بدون مكسرات", "قليل مكسرات", "مكسرات إضافية"],
+            "ملاحظات": "تحتوي على بندق وفستق وجلوتين"
+        },
+        "التبرير": "سعر اقتصادي لكنافة النوتيلا الغنية بالمكسرات الفاخرة"
+    },
+    {
+        "id": 4,
+        "name": "عرض كريب نوتيلا",
+        "price": "35 ر.س",
+        "originalPrice": "45 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638620225281136773",
+        "badges": ["discount"],
+        "category": "وافل وكريب",
+        "description": "عرض خاص: اشترِ 2 كريب نوتيلا واحصل على 1 مجاناً! كريب رقيق محشو بالنوتيلا، مثالي للمشاركة.",
+        "estimated_calories": "~280 سعرة للقطعة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638620225281136773"
+        ],
+        "details": {
+            "النوع": "كريب حلو",
+            "العلامة التجارية": "زاد",
+            "الوزن": "150 جم للقطعة",
+            "المكونات": "عجينة كريب، نوتيلا، سكر بودرة",
+            "خيارات الحشوات": ["نوتيلا فقط", "نوتيلا وموز", "نوتيلا وفراولة"],
+            "خيارات التقديم": ["ساخن", "دافئ"],
+            "ملاحظات": "يجب طلب 3 قطع (2 مدفوع + 1 مجاني)"
+        },
+        "التبرير": "عرض ممتاز بقيمة 3 قطع بكريب النوتيلا بسعر قطعتين فقط"
+    },
+    {
+        "id": 5,
+        "name": "بانكيك نوتيلا",
+        "price": "38 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/a704b661648145b58c955d59b638917975137651629.jpg",
+        "badges": ["exclusive"],
+        "category": "بانكيك",
+        "description": "أطباق بانكيك رقيقة وطرية مغطاة بطبقة generosa من النوتيلا، تقدم مع كريمة مخفوقة وقطع البندق. فطور ملكي.",
+        "estimated_calories": "~520 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/a704b661648145b58c955d59b638917975137651629.jpg"
+        ],
+        "details": {
+            "النوع": "بانكيك حلو",
+            "العلامة التجارية": "زاد",
+            "الوزن": "300 جم",
+            "المكونات": "عجينة بانكيك، نوتيلا، كريمة مخفوقة، بندق",
+            "خيارات الإضافات": ["آيس كريم", "موز", "فراولة", "شراب القيقب"],
+            "خيارات الحجم": ["3 قطع", "5 قطع", "7 قطع"],
+            "ملاحظات": "تحتوي على بندق وجلوتين وألبان"
+        },
+        "التبرير": "سعر فاخر لطبق بانكيك النوتيلا الحصري بقطع البانكيك الطرية"
+    },
+    {
+        "id": 6,
+        "name": "كريمة بالعسل والمكسرات",
+        "price": "25 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638656481658914565",
+        "badges": ["exclusive"],
+        "category": "حلويات",
+        "description": "كريمة بلدية غنية مضافة عليها العسل الطبيعي ومزينة بمزيج من المكسرات المحمصة. بسيطة ولكنها لا تُنسى.",
+        "estimated_calories": "~320 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638656481658914565"
+        ],
+        "details": {
+            "النوع": "كريمة حلوة",
+            "العلامة التجارية": "زاد",
+            "الوزن": "200 جم",
+            "المكونات": "كريمة بلدية، عسل طبيعي، مكسرات مشكلة",
+            "خيارات العسل": ["قليل العسل", "كمية عادية", "عسل إضافي"],
+            "خيارات المكسرات": ["بدون مكسرات", "مكسرات خفيفة", "مكسرات كثيرة"],
+            "ملاحظات": "تحتوي على ألبان ومكسرات"
+        },
+        "التبرير": "سعر معقول لكريمة بلدية تقليدية بمكونات طبيعية فاخرة"
+    },
+    {
+        "id": 7,
+        "name": "كريمة بالعسل والفواكه",
+        "price": "30 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638656493457014642",
+        "badges": ["صحي"],
+        "category": "حلويات",
+        "description": "كريمة بلدية طازجة مع عسل طبيعي وتزيين بأنواع مختلفة من الفواكه الطازجة. توازن رائع بين الصحة والطعم.",
+        "estimated_calories": "~280 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638656493457014642"
+        ],
+        "details": {
+            "النوع": "كريمة وفواكه",
+            "العلامة التجارية": "زاد",
+            "الوزن": "220 جم",
+            "المكونات": "كريمة بلدية، عسل طبيعي، فواكه طازجة موسمية",
+            "خيارات الفواكه": ["موسمية", "توت وفراولة", "موز ومانجو"],
+            "خيارات التحلية": ["عسل خفيف", "عسل متوسط", "عسل كثير"],
+            "ملاحظات": "تحتوي على ألبان - الفواكه طازجة يومياً"
+        },
+        "التبرير": "سعر مناسب لحلوى صحية تجمع بين الكريمة والفواكه الطازجة"
+    },
+    {
+        "id": 8,
+        "name": "كريب دبي",
+        "price": "42 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638634770174037861",
+        "badges": ["exclusive"],
+        "category": "وافل وكريب",
+        "description": "كريب دبي الأنيق! كريب فاخر يحمل نكهات مبتكرة وتصميم جميل، مستوحى من أحدث صيحات الحلويات في دبي.",
+        "estimated_calories": "~480 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638634770174037861"
+        ],
+        "details": {
+            "النوع": "كريب فاخر",
+            "العلامة التجارية": "زاد",
+            "الوزن": "350 جم",
+            "المكونات": "عجينة كريب فاخرة، شوكولاتة، كريمة، فواكه، مكسرات",
+            "خيارات النكهات": ["كلاسيك", "أوريو", "لوتس", "ميكس"],
+            "خيارات التقديم": "طبق هدايا فاخر",
+            "ملاحظات": "تحتوي على ألبان وجلوتين ومكسرات"
+        },
+        "التبرير": "سعر مميز لكريب دبي الحصري بتصميم فاخر ومكونات مميزة"
+    },
+    {
+        "id": 9,
+        "name": "كنافة عثمانية",
+        "price": "45 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638647360713176772",
+        "badges": ["exclusive"],
+        "category": "حلويات",
+        "description": "كنافة عثمانية من 'كنافة باشا' تتميز بطبقتين من عجينة الكنافة المقرمشة، محشوة بكريمة بلدية غنية ومغطاة بالفستق الحلبي الطازج. تجربة لا تُنسى تذوب في الفم بعد نقعها بقطر متوازن بشكل مثالي.",
+        "estimated_calories": "~550 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638647360713176772"
+        ],
+        "details": {
+            "النوع": "كنافة عثمانية",
+            "العلامة التجارية": "زاد",
+            "الوزن": "400 جم",
+            "المكونات": "عجينة كنافة عثمانية، كريمة بلدية، فستق حلبي، قطر",
+            "خيارات القطر": ["قليل القطر", "متوسط الحلاوة", "حلو كثيراً"],
+            "خيارات التقديم": ["ساخن مع قطر", "دافئ", "بارد"],
+            "ملاحظات": "تحتوي على ألبان وجلوتين وفستق"
+        },
+        "التبرير": "أعلى سعر لكنافة عثمانية فاخرة بطبقتين ومكونات مميزة من الفستق الحلبي"
+    },
+    {
+        "id": 10,
+        "name": "كنافة صوص الفستق",
+        "price": "40 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638616220583115602",
+        "badges": ["exclusive"],
+        "category": "حلويات",
+        "description": "كنافة مع صوص الفستق الحلبي، تأتي بطبقتين من عجينة الكنافة المقرمشة محشوة بصوص الفستق الحلبي ومزينة بالصوص والفستق الحلبي.",
+        "estimated_calories": "~500 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638616220583115602"
+        ],
+        "details": {
+            "النوع": "كنافة فستق",
+            "العلامة التجارية": "زاد",
+            "الوزن": "350 جم",
+            "المكونات": "عجينة كنافة، صوص فستق حلبي، فستق حلبي، قطر",
+            "خيارات الصوص": ["صوص خفيف", "صوص متوسط", "صوص غزير"],
+            "خيارات الفستق": ["قليل فستق", "كمية عادية", "فستق إضافي"],
+            "ملاحظات": "تحتوي على فستق وجلوتين"
+        },
+        "التبرير": "سعر فاخر لكنافة الفستق الحلبي النادر عالي الجودة"
+    },
+    {
+        "id": 11,
+        "name": "بانكيك لوتس مصغر",
+        "price": "22 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615392265902426",
+        "badges": ["exclusive"],
+        "category": "بانكيك",
+        "description": "أطباق بانكيك لوتس مصغرة مثالية للوجبات الخفيفة. قطع صغيرة محملة بنكهة اللوتس المميزة.",
+        "estimated_calories": "~320 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615392265902426"
+        ],
+        "details": {
+            "النوع": "بانكيك مصغر",
+            "العلامة التجارية": "زاد",
+            "الوزن": "180 جم",
+            "المكونات": "عجينة بانكيك، كريمة لوتس، بسكويت لوتس",
+            "خيارات الحجم": ["6 قطع صغيرة", "9 قطع صغيرة"],
+            "خيارات التقديم": ["ساخن", "دافئ"],
+            "ملاحظات": "تحتوي على جلوتين وألبان"
+        },
+        "التبرير": "سعر اقتصادي لبانكيك لوتس مصغر مثالي للوجبات الخفيفة"
+    },
+    {
+        "id": 12,
+        "name": "بانكيك لوتس",
+        "price": "35 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615413154132420",
+        "badges": ["exclusive"],
+        "category": "بانكيك",
+        "description": "طبق بانكيك شهي مغطى بكريمة اللوتس الكريمية وبسكويت اللوتس المفتت. نكهة بلجيكية أصيلة في كل قضمة.",
+        "estimated_calories": "~480 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615413154132420"
+        ],
+        "details": {
+            "النوع": "بانكيك لوتس",
+            "العلامة التجارية": "زاد",
+            "الوزن": "280 جم",
+            "المكونات": "عجينة بانكيك، كريمة لوتس، بسكويت لوتس، كريمة مخفوقة",
+            "خيارات الإضافات": ["آيس كريم", "موز", "شراب القيقب"],
+            "خيارات الحجم": ["3 قطع", "5 قطع"],
+            "ملاحظات": "تحتوي على جلوتين وألبان"
+        },
+        "التبرير": "سعر مناسب لطبق بانكيك لوتس كامل الحجم بمكونات فاخرة"
+    },
+    {
+        "id": 13,
+        "name": "بانكيك لوتس مع آيس كريم",
+        "price": "38 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615419962447161",
+        "badges": ["exclusive"],
+        "category": "بانكيك",
+        "description": "طبق بانكيك لوتس دافئ يقدم مع كرة من الآيس كريم الفانيليا. تباين رائع بين الساخن والبارد.",
+        "estimated_calories": "~520 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615419962447161"
+        ],
+        "details": {
+            "النوع": "بانكيك مع آيس كريم",
+            "العلامة التجارية": "زاد",
+            "الوزن": "320 جم",
+            "المكونات": "عجينة بانكيك، كريمة لوتس، آيس كريم فانيليا، بسكويت لوتس",
+            "خيارات الآيس كريم": ["فانيليا", "شوكولاتة", "لوتس"],
+            "خيارات التقديم": ["ساخن مع آيس كريم", "دافئ فقط"],
+            "ملاحظات": "تحتوي على ألبان وجلوتين"
+        },
+        "التبرير": "سعر مميز لطبق بانكيك لوتس كامل مع آيس كريم فاخر"
+    },
+    {
+        "id": 14,
+        "name": "بانكيك بالكريمة والعسل والمكسرات",
+        "price": "32 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615420355984715",
+        "badges": ["exclusive"],
+        "category": "بانكيك",
+        "description": "أطباق بانكيك طازجة تعلوها كريمة مخفوقة، عسل طبيعي ومزيج من المكسرات المحمصة. فطور صحي ولذيذ.",
+        "estimated_calories": "~450 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615420355984715"
+        ],
+        "details": {
+            "النوع": "بانكيك صحي",
+            "العلامة التجارية": "زاد",
+            "الوزن": "260 جم",
+            "المكونات": "عجينة بانكيك، كريمة مخفوقة، عسل طبيعي، مكسرات مشكلة",
+            "خيارات المكسرات": ["لوز فقط", "مكسرات مشكلة", "بدون مكسرات"],
+            "خيارات العسل": ["عسل خفيف", "عسل متوسط", "عسل كثير"],
+            "ملاحظات": "تحتوي على ألبان وجلوتين ومكسرات"
+        },
+        "التبرير": "سعر معقول لطبق بانكيك صحي بمكونات طبيعية وعسل أصلي"
+    },
+    {
+        "id": 15,
+        "name": "سلطة فواكه بالكريمة والنوتيلا",
+        "price": "28 ر.س",
+        "image": "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615871428191349",
+        "badges": ["صحي"],
+        "category": "سلطات فواكه",
+        "description": "سلطة فواكه طازجة وموسمية تعلوها كريمة مخفوقة وطبقة من النوتيلا. حلوى صحية تجمع بين الفواكه الطازجة والشوكولاتة.",
+        "estimated_calories": "~350 سعرة",
+        "images": [
+            "https://images.deliveryhero.io/image/talabat/Menuitems/mmw_638615871428191349"
+        ],
+        "details": {
+            "النوع": "سلطة فواكه حلوة",
+            "العلامة التجارية": "زاد",
+            "الوزن": "300 جم",
+            "المكونات": "فواكه طازجة موسمية، كريمة مخفوقة، نوتيلا",
+            "خيارات الفواكه": ["موسمية", "توتية", "استوائية"],
+            "خيارات الصلصة": ["كريمة فقط", "نوتيلا فقط", "مزيج"],
+            "ملاحظات": "فواكه طازجة يومياً - تحتوي على ألبان وبندق"
+        },
+        "التبرير": "سعر مناسب لسلطة فواكه طازجة بمكونات عالية الجودة"
+    }
+        ];
+
+        // متغيرات نظام السلة
+        let cart = [];
+
+        // دالة لتحميل السلة من localStorage
+        function loadCartFromLocalStorage() {
+            const savedCart = localStorage.getItem('zadCart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartCount();
+            }
+        }
+
+        // دالة لحفظ السلة إلى localStorage
+        function saveCartToLocalStorage() {
+            localStorage.setItem('zadCart', JSON.stringify(cart));
+        }
+
+        // دالة لتحديث عداد السلة
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            const floatingCartCount = document.querySelector('.floating-cart-count');
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            floatingCartCount.textContent = totalItems;
+        }
+
+        // دالة لإضافة منتج إلى السلة
+        function addToCart(productId, color = null, size = null) {
+            let product = products.find(p => p.id == productId);
+            
+            if (product) {
+                const existingItemIndex = cart.findIndex(item => 
+                    item.id === productId && 
+                    item.selectedColor === color && 
+                    item.selectedSize === size
+                );
+                
+                if (existingItemIndex > -1) {
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        quantity: 1,
+                        selectedColor: color,
+                        selectedSize: size
+                    });
+                }
+                
+                saveCartToLocalStorage();
+                updateCartCount();
+            }
+        }
+
+        // دالة لعرض المنتجات
+        function renderProducts(productsArray, containerId) {
+            const productsContainer = document.getElementById(containerId);
+            productsContainer.innerHTML = '';
+            
+            productsArray.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.setAttribute('data-id', product.id);
+                
+                let badgesHtml = '';
+                if (product.badges && product.badges.length > 0) {
+                    badgesHtml = '<div class="product-badges">';
+                    product.badges.forEach(badge => {
+                        switch(badge) {
+                            case 'discount':
+                                badgesHtml += '<span class="badge badge-discount">خصم</span>';
+                                break;
+                            case 'new':
+                                badgesHtml += '<span class="badge badge-new">جديد</span>';
+                                break;
+                            case 'exclusive':
+                                badgesHtml += '<span class="badge badge-exclusive">حصري</span>';
+                                break;
+                            case 'fast-delivery':
+                                badgesHtml += '<span class="badge badge-fast-delivery">توصيل سريع</span>';
+                                break;
+                        }
+                    });
+                    badgesHtml += '</div>';
+                }
+                
+                let priceHtml = `<p class="product-price">${product.price}`;
+                if (product.originalPrice) {
+                    priceHtml += ` <span class="original-price">${product.originalPrice}</span>`;
+                }
+                priceHtml += '</p>';
+                
+                productCard.innerHTML = `
+                    ${badgesHtml}
+                    <div class="product-image-container">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        ${priceHtml}
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="${product.id}">أضف إلى السلة</button>
+                        </div>
+                    </div>
+                `;
+                productsContainer.appendChild(productCard);
+            });
+        }
+
+        // دالة لعرض صفحة المنتج
+        function showProductPage(productId) {
+            let product = products.find(p => p.id == productId);
+            
+            if (product) {
+                document.querySelectorAll('.products-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById('product-page').style.display = 'block';
+                
+                let priceHtml = `<p class="product-price-detail">${product.price}`;
+                if (product.originalPrice) {
+                    priceHtml += ` <span class="original-price">${product.originalPrice}</span>`;
+                }
+                priceHtml += '</p>';
+                
+                let badgesHtml = '';
+                if (product.badges && product.badges.length > 0) {
+                    badgesHtml = '<div class="product-badges">';
+                    product.badges.forEach(badge => {
+                         switch(badge) {
+                            case 'discount': badgesHtml += '<span class="badge badge-discount">خصم</span>'; break;
+                            case 'new': badgesHtml += '<span class="badge badge-new">جديد</span>'; break;
+                            case 'exclusive': badgesHtml += '<span class="badge badge-exclusive">حصري</span>'; break;
+                            case 'fast-delivery': badgesHtml += '<span class="badge badge-fast-delivery">توصيل سريع</span>'; break;
+                        }
+                    });
+                    badgesHtml += '</div>';
+                }
+                
+                let thumbnailsHtml = '';
+                if (product.images && product.images.length > 0) {
+                    product.images.forEach((img, index) => {
+                        thumbnailsHtml += `<img src="${img}" alt="${product.name}" class="product-thumbnail ${index === 0 ? 'active' : ''}" data-image="${img}">`;
+                    });
+                }
+                
+                let detailsHtml = '';
+                if (product.details) {
+                    detailsHtml = `
+                        <h3>تفاصيل المنتج</h3>
+                        <table class="product-table">
+                            <tbody>
+                                ${Object.entries(product.details).map(([key, value]) => `
+                                    <tr>
+                                        <th>${key}</th>
+                                        <td>${value}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    `;
+                }
+                
+                document.getElementById('product-details').innerHTML = `
+                    <div class="product-gallery">
+                        ${badgesHtml}
+                        <img src="${product.images ? product.images[0] : product.image}" alt="${product.name}" class="main-product-image" id="main-product-image">
+                        <div class="product-thumbnails">
+                            ${thumbnailsHtml}
+                        </div>
+                    </div>
+                    <div class="product-info-detail">
+                        <h2 class="product-title-detail">${product.name}</h2>
+                        ${priceHtml}
+                        <p class="product-description">${product.description}</p>
+                        
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="${product.id}" id="add-to-cart-detail">أضف إلى السلة</button>
+                        </div>
+                        
+                        ${detailsHtml}
+                    </div>
+                `;
+                
+                document.querySelectorAll('.product-thumbnail').forEach(thumb => {
+                    thumb.addEventListener('click', function() {
+                        document.getElementById('main-product-image').src = this.getAttribute('data-image');
+                        document.querySelectorAll('.product-thumbnail').forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+                
+                document.getElementById('add-to-cart-detail').addEventListener('click', function(event) { 
+                    event.stopPropagation();
+                    addToCart(product.id, null, null);
+                });                
+                
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        }
+
+        function backToProducts() {
+            document.querySelectorAll('.products-section').forEach(section => {
+                section.style.display = 'block';
+            });
+            document.getElementById('product-page').style.display = 'none';
+            
+            document.getElementById('products-section').scrollIntoView({behavior: 'smooth'});
+        }
+
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCartFromLocalStorage();
+            
+            renderProducts(products, 'featured-products');
+            
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const productId = e.target.getAttribute('data-id');
+                    addToCart(productId);
+                    e.stopPropagation(); 
+                }
+            });
+            
+            document.addEventListener('click', function(e) {
+                const productCard = e.target.closest('.product-card');
+                if (productCard) {
+                    const productId = productCard.getAttribute('data-id');
+                    showProductPage(productId);
+                }
+            });
+            
+            document.getElementById('back-to-products').addEventListener('click', backToProducts);
+            
+            document.getElementById('floating-cart').addEventListener('click', function() {
+                 window.location.href = '#'; // Change to actual cart page if needed
+            });
+            
+            document.getElementById('cart-icon').addEventListener('click', function(e) {
+                e.preventDefault();
+                 window.location.href = '#'; // Change to actual cart page if needed
+            });
+        });
+    </script>
+</body>
+
+</html>
